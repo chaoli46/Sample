@@ -1,6 +1,5 @@
 require 'rest-client'
 require 'json'
-require 'active_support/core_ext/hash'
 
 module Sample
   class API
