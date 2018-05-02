@@ -5,7 +5,7 @@ module Sample
   class API
     class << self
       def get path, params = {}, required_params = [], all_params = []
-        show_params(path, params, required_params, all_params) do
+        show_params(params, path, required_params, all_params) do
           response = RestClient.get path, params: params, user_agent: user_agent
           parse_response response
         end
@@ -13,12 +13,12 @@ module Sample
 
       private
 
-        def show_params path, params, required_params, all_params, &block
-          if params == :path
+        def show_params tag, path, required_params, all_params, &block
+          if tag == :path
             path
-          elsif params == :required
+          elsif tag == :required
             hash_params *required_params
-          elsif params == :all
+          elsif tag == :all
             hash_params *(required_params+all_params)
           else
             block.call
