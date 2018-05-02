@@ -3,4 +3,7 @@ set -euo pipefail
 IFS=$'\n\t'
 set -vx
 
+if [[ ! -f $HOME/.irbrc && -f "`dirname "$0"`/irbrc" ]]; then
+  cp "`dirname "$0"`/irbrc" $HOME/.irbrc
+fi
 bundle install
