@@ -4,8 +4,7 @@
 
 1. Install
 ```
-$ cd path/of/this/project
-$ bundle
+$ ./bin/setup
 ```
 
 2. Run
